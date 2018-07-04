@@ -31,3 +31,16 @@ Route::get('/go', [
     'uses' => 'views@go',
     'as' => 'go',
 ]);
+Route::get('/lg', [
+    'uses' => 'views@lg',
+    'as' => 'lg',
+]);
+
+Route::post('/Affiliate_Link', [
+    'uses' => 'functions@add_Product_Listing',
+    'as' => 'Affiliate_Link',
+]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
