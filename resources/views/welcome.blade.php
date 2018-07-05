@@ -25,10 +25,7 @@
                 <div class="links">
                     <a href="{{route('what')}}">A/Marketing</a>
                     <a href="{{route('about')}}">About Me</a>
-                    <a href="{{route('products')}}">Products</a>
-
-                    <br/>
-                    <a href="{{route('go')}}?pid=1">Go</a>
+                  <!--  <a href="{{route('products')}}">Products</a> -->
                 </div>
             </div>
         </div>

@@ -16,6 +16,7 @@
 
                     You are logged in!
                 </div>
+                <b> Form for adding Products </b>
                 <form action="{{Route('Affiliate_Link')}}" method="POST">
                   {{ csrf_field() }}
                  <input type="text" name="link" placeholder="Link"/>
@@ -26,6 +27,14 @@
                  <br/>
                  <input type="submit" value="Add Product"/>
                </form>
+               <br/>
+               <div style="display:block; width:50%; background-color:#000; color:#fff; height:200px; overflow:scroll;">
+                 <b> link/go?pid="Product id"</b>
+                   <br/>
+                 @foreach($products as $product)
+                  <b>{{$product->title}} |  ID = {{$product->id}}</b><br/>
+                 @endforeach
+               </div>
             </div>
         </div>
     </div>

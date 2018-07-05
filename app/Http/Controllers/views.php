@@ -15,7 +15,8 @@ class views extends Controller
       return view('what');
     }
     public function products(){
-      return view('products');
+      $products = products::all();
+      return view('products', array('products'=>$products));
     }
     public function marketing(){
       return view('marketing');
