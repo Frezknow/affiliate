@@ -28,13 +28,9 @@ class views extends Controller
       return view('lg');
     }
   public function go(Request $request){
-    $pid = $request->pid;
-    $products = products::all();
-    $all = "";
-    foreach($products as $p){
-      $all.=$p->link."$!$";
-    }
-    return view('go',array('pid'=>$pid,'products'=>$all));
+    $id = $request->pid;
+    $product = products::where('id',$id)->first();
+    return view('go',array('product'=>$product));
   }
 
 

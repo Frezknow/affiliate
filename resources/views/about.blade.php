@@ -8,7 +8,7 @@
   <br/>
    My name is Nathan Reynolds I am 21 and have been
     interested in web development since Freshman Year
-    of highscool and haven't stop since.
+    of highscool and haven't stopped since.
   <br/>
    I started looking into Affiliate Marketing in
     the first few months of 2018 and decided to

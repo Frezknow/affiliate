@@ -17,8 +17,11 @@
                     You are logged in!
                 </div>
                 <b> Form for adding Products </b>
-                <form action="{{Route('Affiliate_Link')}}" method="POST">
+                <form action="{{Route('Affiliate_Link')}}" method="POST" enctype="multipart/form-data">
                   {{ csrf_field() }}
+                 <b>Image</b>
+                 <input type="file" name="imgs"/>
+                 <br/>
                  <input type="text" name="link" placeholder="Link"/>
                  <br/>
                  <input type="text" name="title" placeholder="Title"/>
@@ -32,11 +35,35 @@
                  <b> link/go?pid="Product id"</b>
                    <br/>
                  @foreach($products as $product)
-                  <b>{{$product->title}} |  ID = {{$product->id}}</b><br/>
+                  <div class="Product{{$product->id}}">
+                    <b>{{$product->title}} |  ID = {{$product->id}}  |</b>
+                    <a rel="{{$product->id}}" class="DeleteProduct"> Delete?</a>
+                    <br/>
+                  </div>
                  @endforeach
                </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+ $(document).on('click','.DeleteProduct',function(){
+   var id = $(this).attr('rel');
+   alert(id);
+   $.ajax({
+     url:"DeleteProduct",
+     type:"POST",
+     headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+     },
+     data:{id:id},
+     success:function(){
+       $('.Product'+id).remove();
+     },
+     error:function(){
+       alert("error");
+     }
+   });
+ });
+</script>
 @endsection
