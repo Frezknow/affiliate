@@ -6,7 +6,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\products;
-
+use App\emails;
 class functions extends Controller
 {
   public function add_Product_Listing(Request $request){
@@ -28,6 +28,11 @@ class functions extends Controller
   }
  public function DeleteProduct(Request $request){
     products::find($request->id)->delete();
+ }
+ public function Lead(Request $request){
+   emails::create([
+    'email'=>$request->email,
+  ]);
  }
 
 }

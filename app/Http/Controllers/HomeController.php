@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\products;
+use App\emails;
 class HomeController extends Controller
 {
     /**
@@ -24,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $products = products::all();
-        return view('home',array('products'=>$products));
+        $leads = emails::all();
+        return view('home',array('products'=>$products,'leads'=>$leads));
     }
 }

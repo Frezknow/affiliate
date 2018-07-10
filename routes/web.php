@@ -39,6 +39,10 @@ Route::post('/DeleteProduct',[
   'uses'=>'functions@DeleteProduct',
   'as'=>'DeleteProduct'
 ]);
+Route::post('/lead',[
+  'uses'=>'functions@Lead',
+  'as'=>'lead'
+]);
 Route::post('/Affiliate_Link', [
     'uses' => 'functions@add_Product_Listing',
     'as' => 'Affiliate_Link',

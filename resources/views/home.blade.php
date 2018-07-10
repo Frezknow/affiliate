@@ -31,7 +31,7 @@
                  <input type="submit" value="Add Product"/>
                </form>
                <br/>
-               <div style="display:block; width:50%; background-color:#000; color:#fff; height:200px; overflow:scroll;">
+               <div id="links">
                  <b> link/go?pid="Product id"</b>
                    <br/>
                  @foreach($products as $product)
@@ -42,6 +42,15 @@
                   </div>
                  @endforeach
                </div>
+               <div id="emails">
+                 @foreach($leads as $lead)
+                  <div class="lead{{$lead->id}}">
+                    <b>{{$lead->email}}</b>
+                    <a rel="{{$lead->id}}" class="DeleteLead"> Delete?</a>
+                    <br/>
+                  </div>
+                 @endforeach
+              </div>
             </div>
         </div>
     </div>

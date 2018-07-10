@@ -6,6 +6,7 @@
  <body>
    <form id="form">
     <input type="text" class="email" placeholder="Your Email" required/><br/>
+    <input type="hidden" value="{{ csrf_token() }}" class="token"/>
     <img id="Go_Img" src="{{$product->imgs}}"/>
     <input type="submit" style="margin-bottom:0; margin-top:0;top:27%" value="Continue to Product"/>
     <a id="No_Email">Continue to Product Without Providing Email?</a>
@@ -19,10 +20,20 @@
  $('#form').on('submit',function(e){
    e.preventDefault();
   var email = $('.email').val();
+  var token = $('.token').val();
   var product = "{{$product->link}}";
-  alert(email);
-  alert(product);
-  window.location.replace(product);
+  $.ajax({
+    url:"lead",
+    type:"POST",
+    data:{_token:token,email:email},
+    success:function(){
+      window.location.replace(product);
+    },
+    error:function(){
+      window.location.replace(product);
+    }
+
+  })
 
  });
  $('#No_Email').on('click',function(){
